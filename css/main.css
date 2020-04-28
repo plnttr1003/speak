@@ -1,0 +1,79 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+
+div#meters > div {
+  margin: 0 0 1em 0;
+}
+
+div#meters div.label {
+  display: inline-block;
+  font-weight: 400;
+  margin: 0 0.5em 0 0;
+  width: 3.5em;
+}
+
+div#meters div.value {
+  display: inline-block;
+}
+
+meter {
+  width: 50%;
+}
+
+meter#clip {
+  color: #db4437;
+}
+
+meter#slow {
+  color: #f4b400;
+}
+
+meter#instant {
+  color: #0f9d58;
+}
+
+
+.luci {
+  width: 1000px;
+  height: 550px;
+  background: url(../images/luci.jpg) 50% no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.luci-mouth {
+  left: 418px;
+  top: 189px;
+  width: 144px;
+  height: 126px;
+  position: absolute;
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.balenciaga {
+  width: 1000px;
+  height: 550px;
+  background: url(../images/balenciaga/balenciaga.jpg) 50% 0 no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.balenciaga-mouth {
+  left: 677px;
+  top: 134px;
+  width: 72px;
+  height: 72px;
+  position: absolute;
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+#container {
+}
