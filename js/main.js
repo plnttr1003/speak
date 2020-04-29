@@ -20,6 +20,10 @@ const clipValueDisplay = document.querySelector('#clip .value');
 
 const luciMouth = document.querySelector('.luci-mouth');
 const blncgMouth = document.querySelector('.balenciaga-mouth');
+const blncgEyes = document.querySelector('.balenciaga-eyes');
+const lcEyes = document.querySelector('.luci-eyes');
+let blncgRandom = 0;
+let luciRandom = 0;
 
 try {
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -28,15 +32,12 @@ try {
   alert('Web Audio API not supported.');
 }
 
-// Put variables in global scope to make them available to the browser console.
 const constraints = window.constraints = {
   audio: true,
   video: false
 };
 
 function handleSuccess(stream) {
-  // Put variables in global scope to make them available to the
-  // browser console.
   window.stream = stream;
   const soundMeter = window.soundMeter = new SoundMeter(window.audioContext);
   soundMeter.connectToSource(stream, function(e) {
@@ -47,7 +48,6 @@ function handleSuccess(stream) {
     setInterval(() => {
       let number = Math.ceil(soundMeter.instant.toFixed(2) * 20 * 2);
       let balenciagaNumber = Math.ceil(number / 4);
-      console.log(number);
       luciMouth.style.backgroundImage = 'url(images/' + number + '.png)';
       blncgMouth.style.backgroundImage = 'url(images/balenciaga/' + number + '.png)';
       instantMeter.value = instantValueDisplay.innerText =
@@ -64,4 +64,37 @@ function handleError(error) {
   console.log('navigator.MediaDevices.getUserMedia error: ', error.message, error.name);
 }
 
+function balenciagaEyesStart() {
+  blncgRandom = getRandomArbitrary(3, 10) * 1000;
+  setTimeout(balenciagaEyes, blncgRandom);
+}
+
+function balenciagaEyes() {
+  blncgEyes.classList.add('balenciaga-eyes-animation');
+  setTimeout(function() {
+    blncgEyes.classList.remove('balenciaga-eyes-animation');
+    balenciagaEyesStart();
+  }, 3000);
+}
+
+function luciEyesStart() {
+  luciRandom = getRandomArbitrary(3, 10) * 1000;
+  setTimeout(luciEyes, luciRandom);
+}
+
+function luciEyes() {
+  lcEyes.classList.add('luci-eyes-animation');
+  setTimeout(function() {
+    lcEyes.classList.remove('luci-eyes-animation');
+    luciEyesStart();
+  }, 3000);
+}
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
 navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
+
+balenciagaEyesStart();
+luciEyesStart();

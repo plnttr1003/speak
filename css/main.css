@@ -74,6 +74,50 @@ meter#instant {
   background-repeat: no-repeat;
 }
 
+@keyframes balenciaga-eyes {
+  0% { background-image: none} 
+  /*10% { background-image: url(../images/balenciaga/eye-1.png);}*/
+  10% { background-image: url(../images/balenciaga/eye-2.png);} 
+  50% { background-image: url(../images/balenciaga/eye-3.png);}
+  100% { background-image: none;} 
+}
+
+@keyframes luci-eyes {
+  0% { background-image: none} 
+  /*10% { background-image: url(../images/balenciaga/eye-1.png);}*/
+  50% { background-image: url(../images/luci/eye-1.png);}
+  100% { background-image: none;} 
+}
+
+.balenciaga-eyes {
+  left: 662px;
+  top: 77.5px;
+  width: 105px;
+  height: 53px;
+  position: absolute;
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.luci-eyes {
+  left: 553.5px;
+  top: 195.9px;
+  width: 61px;
+  height: 105px;
+  position: absolute;
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.balenciaga-eyes-animation {
+  animation: 0.5s linear 0s 1 forwards balenciaga-eyes;
+}
+
+.luci-eyes-animation {
+  animation: 0.5s linear 0s 1 forwards luci-eyes;
+}
 
 #container {
 }
